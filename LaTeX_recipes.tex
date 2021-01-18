@@ -1,0 +1,228 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Diese tex-Datei kompilieren, Vorgaben können so übernommen werden %%
+%% Diese tex-Datei anpassen:                                         %%
+%% 1. Kopf- und Fußzeile definieren                                  %%
+%% 2. Counter anpassen: Überschrift, Seite, Gleichung                %%
+%% 3. Kapitel (tex-Dateien) einfügen mit \input{}                    %%
+%%(4. neue Kommandos können zu den bestehenden in der Präambel hinzu-%%
+%%    gefügt werden)                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Präambel                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Praeambel}
+
+\usepackage[nowarnings]{xcookybooky}											   % Rezepte typesetten
+
+\setRecipeColors{
+	recipename = petrol,
+	ing = black,
+	inghead = sundown,
+	prep = black,
+	prephead = sundown,
+	suggestion = black,
+	suggestionhead = petrol,
+	separationgraph = petrol,
+	hint = sand,
+	hinthead = sundown,
+	hintline = sand,
+	numeration = sundown,
+}
+
+\setRecipeLengths{
+	pictureheight = 0.2\textheight,
+	bigpicturewidth = 0.55\textwidth,
+	smallpicturewidth = 0.35\textwidth,
+	introductionwidth = 0.9\textwidth,
+	preparationwidth = 0.55\textwidth,
+	ingredientswidth = 0.35\textwidth,
+}
+
+\setRecipeSizes{
+	recipename = \Huge,
+	intro = \normalsize,
+	ing = \normalsize,
+	inghead = \Large,
+	prephead = \Large,
+	suggestion = \normalsize,
+	hint = \large,
+	hinthead = \Large,
+}
+
+% \usepackage{emerald}
+% \setRecipenameFont{fwb}{T1}{m}{n}
+
+\setRecipenameFont{\sfdefault}{T1}{b}{n}
+
+\setHeadlines{
+	inghead = Zutaten,
+	prephead = Zubereitung,
+	hinthead = Anmerkungen,
+	continuationhead = { },
+	continuationfoot = { },
+	portionvalue = Portion(en),
+	calory = Energie,
+}
+
+
+% updated package implementations
+\renewcommand{\step}
+{%
+    \stepcounter{step}%
+    \lettrine
+    [%
+        lines=2,
+        lhang=0,          % space into margin, value between 0 and 1
+        loversize=0.1,   % enlarges the height of the capital
+        slope=0em,
+        findent=0.75em,      % gap between capital and intended text
+        nindent=0em       % shifts all intended lines, begining with the second line
+    ]{\thestep}{}%
+}
+
+% lange Zutatenliste:
+% https://stackoverflow.com/questions/64688876/using-xcookybooky-in-latex-i-have-many-ingredients-but-it-does-go-into-the-nex
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Kopf- und Fußzeile                                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[automark]{scrlayer-scrpage}									% eigene Kopf-/Fusszeile
+%% Kopfzeile: links auf ungeraden, rechts auf geraden Seiten:
+%\ihead{}
+%% dazu: immer zentriert (Labor und Versuch):
+%\chead{}
+%% dazu: rechts auf ungeraden, links auf geraden Seiten
+%\ohead{}
+%% Fußzeile: links auf ungeraden, rechts auf geraden Seiten:
+%\ifoot{}
+%% dazu: rechts auf ungeraden, links auf geraden Seiten:
+%\ofoot{\pagemark}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Counter setzen                                                    %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setcounter{section}{1}												% starte mit anderer Überschrift-Nr. (+1)
+\setcounter{page}{0}													% starte mit anderer Seitenzahl
+%\setcounter{equation}{0}												% starte mit anderer Gleichungsnummer
+
+\setcounter{secnumdepth}{1}
+\renewcommand{\subsectionmark}[1]
+{
+}
+
+% \renewcommand{\section}[1]{
+% 	\addtocounter{section}{1}
+% 	\clearpage
+% 	\pagestyle{empty}
+% 	\vspace{0.4\textheight}
+% 	{\Huge #1} %\section{#1}
+% 	\clearpage
+% 	\pagestyle{fancy}
+% }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Dokument                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+	\input{Deckblatt}
+
+	\input{Vorwort}
+	\input{Verzeichnisse}
+
+	% \section{Aufläufe}
+
+\begin{recipe}
+[%
+    preparationtime = {\unit[1]{h}},
+    bakingtime={\unit[20-25]{min}},
+    bakingtemperature={\protect\bakingtemperature{
+        fanoven=\unit[175]{\textcelcius}}},
+    portion = {\portion{6}},
+	calory = 20 kcal,
+]
+{Spinach Lasagne}
+
+\introduction{einleitung \lipsum[2]}
+\suggestion[Titel des Vorschlags]{vorschlag ...}
+\hint{Hinweis...}
+% \graph
+%     {
+%         %small=Recipes/MainCourses/BBQChicken/Small.jpg,
+%         big=example-image
+%     }
+
+\ingredients
+    {
+        \textbf{Sauce}\\
+        2 & chopped onions\\
+        \unit[2]{tbsp} & Olive oil\\
+        3 & chopped cloves of garlic\\
+        \unit[2]{tsps} & dried thyme\\
+        4 & grated carrots\\
+        3 & grated celery leaves\\
+        1 & grated squash\\
+        1 & grated aubergine\\
+        \unit[250]{g} & mushrooms\\
+        \unit[1]{dL} & tomato paste\\
+        \unit[1]{can} & chopped tomatoes\\
+        To taste & salt and pepper\\
+        \\
+        \textbf{Spinach}\\
+        \unit[500]{g} & frozen spinach\\
+        \unit[1]{dL} & cream\\
+        1 & onion\\
+        1 & clove of garlic\\
+        \unit[2]{tbsp} & oil\\
+        To taste & salt \& pepper \& fresh basil\\
+        % \\
+        % \textbf{Mornay}\\
+        % \unit[2]{tbsp} & butter\\
+        % \unit[2]{tbsp} & flour\\
+        % \unit[3]{dL} & milk\\
+        % \unit[125]{g} & fresh mozzarella\\
+        % To taste & salt \& pepper \& nutmeg\\
+        % \\
+        % \unit[250]{g} & Lasagne plates\\
+        % Enough & mozzarella\\
+    }
+
+    \preparation{
+      \step
+	   test und andere sachen
+
+      \step
+	  \lipsum[5]
+
+      \step
+	  \lipsum[4]
+
+      \step
+	  \lipsum[2]
+
+      \step \lipsum[6]
+
+      \step \lipsum[2]
+    }
+
+\end{recipe}
+
+
+
+
+
+
+\end{document}

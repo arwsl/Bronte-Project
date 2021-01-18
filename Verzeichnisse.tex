@@ -1,0 +1,40 @@
+\pagestyle{plain}					% keine Kopf- und Fußzeilen ab hier (am Ende der tex wieder aufgehoben)
+\pagenumbering{Roman}							% römische Seitennummerierung
+
+\tableofcontents								% Inhaltsverzeichnis
+
+
+
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis} % manuell ins Inhaltsverzeichins fügen
+\section*{Abkürzungsverzeichnis}
+\begin{acronym}[MMMMMMMMMM]
+	\acro{CST}{CST-Studio Suite}
+	\acro{EAGLE}{Easily Applicable Graphical Layout Editor}
+	\acro{ESB}{Ersatzschaltbild}
+	\acro{MSL}{Mikrostreifenleitung}
+	\acrodefplural{MSL}[MSL]{Mikro"-streifen"-leitungen}
+	\acro{NWA}{Netzwerkanalysator}
+	\acrodefplural{NWA}[NWA]{Netzwerkanalysatoren}
+	\acro{Ostfalia}{Ostfalia Hochschule für angewandte Wissenschaften}
+	\acro{PTB}{Physikalisch Technische Bundesanstalt}
+	\acrodefplural{PTB}[PTB]{Physikalisch Technischen Bundesanstalt}
+	\acro{S-Parameter}{Streu"-para"-meter}
+	\acrodefplural{S-Parameter}[S-Parametern]{Streuparametern}
+	\acro{SMA-Stecker}{Sub-Miniature-A-Steckverbinder}
+	\acro{SMD}{Surface Mounted Device}
+	\acro{TDR}{Time Domain Reflectometry}
+	\acro{TEM-Welle}{transversal-elektromagnetische Welle}
+	\acrodefplural{TEM-Welle}[TEM-Wellen]{transversal-elektromagnetische Wellen}
+	\acro{DGL}{Differentialgleichung}
+
+
+
+\end{acronym}
+
+\cleardoublepage								% neue (rechte) Seite
+\setcounter{page}{0}
+\pagenumbering{arabic}							% arabische (normale) Seitenzahlen
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+
+\pagestyle{fancy}							%Kopf- und Fußzeile wird ab hier wieder angezeigt

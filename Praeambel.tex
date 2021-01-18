@@ -1,0 +1,63 @@
+\documentclass[
+a4paper,
+11pt,
+oneside,
+]{scrartcl}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[ngerman, english]{babel}
+
+\usepackage{textcomp}
+\usepackage{gensymb}
+
+\usepackage{paracol}
+\usepackage{supertabular}
+\usepackage{lipsum}
+
+\usepackage{nicefrac}
+
+\DeclareRobustCommand{\textcelcius}{\ensuremath{^{\circ}\mathrm{C}}}
+
+\usepackage{xcolor}
+
+%% Hyperlinks setzen, PDF bearbeiten %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[
+		bookmarks=true,
+		% bookmarksopen=true,							% Kapitelmarken in Acrobat anzeigen
+		% bookmarksopenlevel=1,						% nu oberste Ebene der Kapitel anzeigen
+		pagebackref=true,							% Links: aus Literatur in Text
+		% pdfpagelayout=TwoColumnRight,				% Anzeige: scollen und zweiseitig
+		breaklinks, 								% Allows link text to break across lines; This makes links on multiple lines into different PDF links to the same target
+		hidelinks,									% Farbe und Rahmen der Links entfernen
+		linktoc=all,									% Text, Seitenzahlen in TOC, LOF, LOT
+		% Fit,										% Seite an Fenster anpassen
+	]{hyperref}
+\hypersetup{										% Einstellungen zum pdf
+	%pdftoolbar=false,							% Acrobat toolbar aus
+	% pdfmenubar=false,							% Acrobat menu aus
+	pdftitle={Vegane Gerichte und Getränke},
+	pdfsubject={Rezeptsammlung},
+	pdfauthor={arwsl},
+}
+
+\usepackage{todonotes}
+
+\usepackage[printonlyused]{acronym}					% Abkürzungsverzeichnis
+\makeatletter										% \acs-Befehl neu definieren: \mbox entfernt, sodass Umbrüche möglich sind
+\renewcommand*\AC@acs[1]{%
+    \expandafter\AC@get\csname fn@#1\endcsname\@firstoftwo{#1}}
+\makeatother
+
+
+
+%%% Farbendefinitionen                                                %%
+\definecolor{ostfaliaBlau}{HTML}{003A79}
+\definecolor{PTBBlau}{HTML}{009CCF}
+\definecolor{PTBRot}{HTML}{CF3300}
+
+\definecolor{petrol}{HTML}{11697A}
+\definecolor{sundown}{HTML}{DB6400}
+\definecolor{sand}{HTML}{FFA62B}
+\definecolor{ivory}{HTML}{F8F1F1}
