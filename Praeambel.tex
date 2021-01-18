@@ -2,12 +2,12 @@
 a4paper,
 11pt,
 oneside,
-]{scrartcl}
+]{scrbook}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
-\usepackage[ngerman, english]{babel}
+\usepackage[ngerman]{babel}
 
 \usepackage{textcomp}
 \usepackage{gensymb}
@@ -16,9 +16,16 @@ oneside,
 \usepackage{supertabular}
 \usepackage{lipsum}
 
+\usepackage{amssymb}                                % mathematische Symbole importieren
+\usepackage{amsmath}                                % Mathematikumgebungen (align) importieren
 \usepackage{nicefrac}
+\usepackage{siunitx}
 
-\DeclareRobustCommand{\textcelcius}{\ensuremath{^{\circ}\mathrm{C}}}
+\newcommand{\pck}[0]{\acs{Pck.}}
+\newcommand{\msp}[0]{\acs{Msp.}}
+\newcommand{\TL}[0]{\acs{TL}}
+\newcommand{\EL}[0]{\acs{EL}}
+\newcommand{\dmesser}[0]{\(\varnothing\)}
 
 \usepackage{xcolor}
 

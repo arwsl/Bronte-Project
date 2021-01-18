@@ -115,17 +115,19 @@
 \setcounter{page}{0}													% starte mit anderer Seitenzahl
 %\setcounter{equation}{0}												% starte mit anderer Gleichungsnummer
 
-\setcounter{secnumdepth}{1}
-\renewcommand{\subsectionmark}[1]
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{3}
+\renewcommand*{\recipesection}[2][]
 {
+	\section[#1]{#2}
 }
 
-% \renewcommand{\section}[1]{
+% \renewcommand{\rchapter}[1]{
 % 	\addtocounter{section}{1}
 % 	\clearpage
 % 	\pagestyle{empty}
 % 	\vspace{0.4\textheight}
-% 	{\Huge #1} %\section{#1}
+% 	{\Huge\chapter{#1}}
 % 	\clearpage
 % 	\pagestyle{fancy}
 % }
@@ -143,85 +145,21 @@
 	\input{Vorwort}
 	\input{Verzeichnisse}
 
-	% \section{Aufläufe}
+	\part{Salate}
 
-\begin{recipe}
-[%
-    preparationtime = {\unit[1]{h}},
-    bakingtime={\unit[20-25]{min}},
-    bakingtemperature={\protect\bakingtemperature{
-        fanoven=\unit[175]{\textcelcius}}},
-    portion = {\portion{6}},
-	calory = 20 kcal,
-]
-{Spinach Lasagne}
+	\part{Hauptgerichte}
 
-\introduction{einleitung \lipsum[2]}
-\suggestion[Titel des Vorschlags]{vorschlag ...}
-\hint{Hinweis...}
-% \graph
-%     {
-%         %small=Recipes/MainCourses/BBQChicken/Small.jpg,
-%         big=example-image
-%     }
+	\part{Nachspeisen}
 
-\ingredients
-    {
-        \textbf{Sauce}\\
-        2 & chopped onions\\
-        \unit[2]{tbsp} & Olive oil\\
-        3 & chopped cloves of garlic\\
-        \unit[2]{tsps} & dried thyme\\
-        4 & grated carrots\\
-        3 & grated celery leaves\\
-        1 & grated squash\\
-        1 & grated aubergine\\
-        \unit[250]{g} & mushrooms\\
-        \unit[1]{dL} & tomato paste\\
-        \unit[1]{can} & chopped tomatoes\\
-        To taste & salt and pepper\\
-        \\
-        \textbf{Spinach}\\
-        \unit[500]{g} & frozen spinach\\
-        \unit[1]{dL} & cream\\
-        1 & onion\\
-        1 & clove of garlic\\
-        \unit[2]{tbsp} & oil\\
-        To taste & salt \& pepper \& fresh basil\\
-        % \\
-        % \textbf{Mornay}\\
-        % \unit[2]{tbsp} & butter\\
-        % \unit[2]{tbsp} & flour\\
-        % \unit[3]{dL} & milk\\
-        % \unit[125]{g} & fresh mozzarella\\
-        % To taste & salt \& pepper \& nutmeg\\
-        % \\
-        % \unit[250]{g} & Lasagne plates\\
-        % Enough & mozzarella\\
-    }
+	\part{Gebäck}
+		\chapter{Brote}
+		\chapter{Brötchen}
+		\chapter{Kekse}
+			\input{Gebaeck/Kekse/Johannisbeerlebkuchen/Johannisbeerlebkuchen.tex}
+		\chapter{Kuchen}
 
-    \preparation{
-      \step
-	   test und andere sachen
-
-      \step
-	  \lipsum[5]
-
-      \step
-	  \lipsum[4]
-
-      \step
-	  \lipsum[2]
-
-      \step \lipsum[6]
-
-      \step \lipsum[2]
-    }
-
-\end{recipe}
-
-
-
+	\part{Getränke}
+		\chapter{alkoholische Getränke}
 
 
 
