@@ -32,15 +32,15 @@
 	separationgraph = petrol,
 	hint = sand,
 	hinthead = sundown,
-	hintline = sand,
+	hintline = sundown,
 	numeration = sundown,
 }
 
 \setRecipeLengths{
 	pictureheight = 0.2\textheight,
-	bigpicturewidth = 0.55\textwidth,
-	smallpicturewidth = 0.35\textwidth,
-	introductionwidth = 0.9\textwidth,
+	bigpicturewidth = 0.55\textwidth, % ratio: pw/ph = 11/4
+	smallpicturewidth = 0.35\textwidth, % ratio: pw/ph = 7/4
+	introductionwidth = 0.75\textwidth,
 	preparationwidth = 0.55\textwidth,
 	ingredientswidth = 0.35\textwidth,
 }
@@ -87,6 +87,11 @@
     ]{\thestep}{}%
 }
 
+\renewcommand{\sectionmark}[1]
+{
+	\markright{\MakeUppercase{\thechapter.\ #1}}
+}
+
 % lange Zutatenliste:
 % https://stackoverflow.com/questions/64688876/using-xcookybooky-in-latex-i-have-many-ingredients-but-it-does-go-into-the-nex
 
@@ -117,20 +122,16 @@
 
 \setcounter{secnumdepth}{0}
 \setcounter{tocdepth}{3}
-\renewcommand*{\recipesection}[2][]
+\renewcommand{\recipesection}[2][]
 {
 	\section[#1]{#2}
 }
 
-% \renewcommand{\rchapter}[1]{
-% 	\addtocounter{section}{1}
-% 	\clearpage
-% 	\pagestyle{empty}
-% 	\vspace{0.4\textheight}
-% 	{\Huge\chapter{#1}}
-% 	\clearpage
-% 	\pagestyle{fancy}
-% }
+\newcommand{\chapterwithtoc}[1]{
+	\chapter{#1}
+	\minitoc
+}
+% \mtcselectlanguage
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -145,22 +146,64 @@
 	\input{Vorwort}
 	\input{Verzeichnisse}
 
+
 	\part{Salate}
 
 	\part{Hauptgerichte}
+		\chapterwithtoc{Eintopf-Gerichte}
+			\input{Hauptgerichte/Eintoepfe/Bunter_Kichererbseneintopf/Bunter_Kichererbseneintopf}
+		\chapterwithtoc{Nudel-Gerichte}
+			\input{Hauptgerichte/Nudelgerichte/Lazy_Noodles/Lazy_Noodles}
 
 	\part{Nachspeisen}
 
 	\part{Gebäck}
-		\chapter{Brote}
-		\chapter{Brötchen}
-		\chapter{Kekse}
+		\chapterwithtoc{Brote}
+			\input{Gebaeck/Brote/Bananenbrot/Bananenbrot}
+			\input{Gebaeck/Brote/Mediterranes_Baguette/Mediterranes_Baguette}
+		\chapterwithtoc{Brötchen}
+		\chapterwithtoc{Kekse}
 			\input{Gebaeck/Kekse/Johannisbeerlebkuchen/Johannisbeerlebkuchen.tex}
-		\chapter{Kuchen}
+			\input{Gebaeck/Kekse/Rosmarin-Heidesand/Rosmarin-Heidesand.tex}
+			\input{Gebaeck/Kekse/Lussekatter/Lussekatter.tex}
+		\chapterwithtoc{Kuchen}
+			\input{Gebaeck/Kuchen/Lebkuchen-Brownies/Lebkuchen-Brownies.tex}
 
 	\part{Getränke}
-		\chapter{alkoholische Getränke}
+		\chapterwithtoc{alkoholische Getränke}
 
-
+		% \begin{recipe}
+		%     [
+		%         preparationtime = {\SI{15}{\minute}},
+		%         bakingtime = {\SI{12}{\minute} bis \SI{15}{\minute}},
+		%         bakingtemperature = {\protect\bakingtemperature{fanoven=\SI{180}{\degree}}},
+		%         portion = {40 Stück},
+		%         source = {Stina Spiegelberg}
+		%     ]
+		%     {Name}
+		%
+		%     % \graph
+		%     %     {
+		%     %         small=Recipes/MainCourses/BBQChicken/Small.jpg,
+		%     %         big=example-image
+		%     %     }
+		%
+		%     % \introduction{einleitung}
+		%
+		%     \ingredients{
+		%
+		%     }
+		%
+		%     \preparation{
+		%         \step
+		%     }
+		%
+		%     \suggestion[Title of Suggestion]{
+		% 		Suggestion
+		%     }
+		%
+		%     \hint{Hint}
+		%
+		% \end{recipe}
 
 \end{document}

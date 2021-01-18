@@ -21,11 +21,13 @@ oneside,
 \usepackage{nicefrac}
 \usepackage{siunitx}
 
-\newcommand{\pck}[0]{\acs{Pck.}}
-\newcommand{\msp}[0]{\acs{Msp.}}
-\newcommand{\TL}[0]{\acs{TL}}
-\newcommand{\EL}[0]{\acs{EL}}
-\newcommand{\dmesser}[0]{\(\varnothing\)}
+\newcommand{\ca}{\acs{ca.}}
+\newcommand{\pck}{\acs{Pck.}}
+\newcommand{\msp}{\acs{Msp.}}
+\newcommand{\geh}{\acs{geh.}}
+\newcommand{\TL}{\acs{TL}}
+\newcommand{\EL}{\acs{EL}}
+\newcommand{\dmesser}{\(\varnothing\)}
 
 \usepackage{xcolor}
 
@@ -57,6 +59,11 @@ oneside,
     \expandafter\AC@get\csname fn@#1\endcsname\@firstoftwo{#1}}
 \makeatother
 
+
+\usepackage[]{minitoc} % kleine TOC einfügen
+\mtcsetfeature{minitoc}{after}{\cleardoublepage}
+\mtcsetfeature{minitoc}{pagestyle}{\thispagestyle{empty}}
+\mtcselectlanguage{german}
 
 
 %%% Farbendefinitionen                                                %%
