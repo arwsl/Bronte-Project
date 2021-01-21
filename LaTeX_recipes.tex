@@ -89,7 +89,7 @@
 
 \renewcommand{\sectionmark}[1]
 {
-	\markright{\MakeUppercase{\thechapter.\ #1}}
+	\markright{\MakeUppercase{\thesection.\ #1}}
 }
 
 % lange Zutatenliste:
@@ -124,14 +124,14 @@
 \setcounter{tocdepth}{3}
 \renewcommand{\recipesection}[2][]
 {
-	\section[#1]{#2}
+	\subsection[#1]{#2}
 }
 
-\newcommand{\chapterwithtoc}[1]{
-	\chapter{#1}
-	\minitoc
+\newcommand{\sectionwithtoc}[1]{
+	\section{#1}
+	\secttoc
 }
-% \mtcselectlanguage
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -146,31 +146,35 @@
 	\input{Vorwort}
 	\input{Verzeichnisse}
 
-
-	\part{Salate}
+	\part{Vorspeisen}
+		\sectionwithtoc{Salate}
+			\input{Vorspeisen/Salate/Kartoffel-Radieschen-Salat/Kartoffel-Radieschen-Salat}
+			\input{Vorspeisen/Salate/Asiatischer_Krautsalat/Asiatischer_Krautsalat}
 
 	\part{Hauptgerichte}
-		\chapterwithtoc{Eintopf-Gerichte}
+		\sectionwithtoc{Eintopf-Gerichte}
 			\input{Hauptgerichte/Eintoepfe/Bunter_Kichererbseneintopf/Bunter_Kichererbseneintopf}
-		\chapterwithtoc{Nudel-Gerichte}
+		\sectionwithtoc{Nudel-Gerichte}
 			\input{Hauptgerichte/Nudelgerichte/Lazy_Noodles/Lazy_Noodles}
 
 	\part{Nachspeisen}
 
 	\part{Gebäck}
-		\chapterwithtoc{Brote}
+		\sectionwithtoc{Brote}
 			\input{Gebaeck/Brote/Bananenbrot/Bananenbrot}
 			\input{Gebaeck/Brote/Mediterranes_Baguette/Mediterranes_Baguette}
-		\chapterwithtoc{Brötchen}
-		\chapterwithtoc{Kekse}
-			\input{Gebaeck/Kekse/Johannisbeerlebkuchen/Johannisbeerlebkuchen.tex}
-			\input{Gebaeck/Kekse/Rosmarin-Heidesand/Rosmarin-Heidesand.tex}
-			\input{Gebaeck/Kekse/Lussekatter/Lussekatter.tex}
-		\chapterwithtoc{Kuchen}
-			\input{Gebaeck/Kuchen/Lebkuchen-Brownies/Lebkuchen-Brownies.tex}
+		\sectionwithtoc{Brötchen}
+		\sectionwithtoc{Kekse}
+			\input{Gebaeck/Kekse/Johannisbeerlebkuchen/Johannisbeerlebkuchen}
+			\input{Gebaeck/Kekse/Rosmarin-Heidesand/Rosmarin-Heidesand}
+			\input{Gebaeck/Kekse/Lussekatter/Lussekatter}
+		\sectionwithtoc{Kuchen}
+			\input{Gebaeck/Kuchen/Lebkuchen-Brownies/Lebkuchen-Brownies}
+			\input{Gebaeck/Kuchen/Apfel-Knusper-Muffins/Apfel-Knusper-Muffins}
 
 	\part{Getränke}
-		\chapterwithtoc{alkoholische Getränke}
+		\sectionwithtoc{Alkoholische Getränke}
+		\sectionwithtoc{Nicht-alkoholische Getränke}
 
 		% \begin{recipe}
 		%     [

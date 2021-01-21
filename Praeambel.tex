@@ -2,7 +2,7 @@
 a4paper,
 11pt,
 oneside,
-]{scrbook}
+]{scrartcl}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -21,10 +21,11 @@ oneside,
 \usepackage{nicefrac}
 \usepackage{siunitx}
 
-\newcommand{\ca}{\acs{ca.}}
-\newcommand{\pck}{\acs{Pck.}}
-\newcommand{\msp}{\acs{Msp.}}
-\newcommand{\geh}{\acs{geh.}}
+\newcommand{\ca}{\acs{ca}\,}
+\newcommand{\pck}{\acs{Pck}\,}
+\newcommand{\msp}{\acs{Msp}\,}
+\newcommand{\geh}{\acs{geh}\,}
+\newcommand{\Ta}{\acs{Ta}\,}
 \newcommand{\TL}{\acs{TL}}
 \newcommand{\EL}{\acs{EL}}
 \newcommand{\dmesser}{\(\varnothing\)}
@@ -60,10 +61,10 @@ oneside,
 \makeatother
 
 
-\usepackage[]{minitoc} % kleine TOC einfügen
-\mtcsetfeature{minitoc}{after}{\cleardoublepage}
-\mtcsetfeature{minitoc}{pagestyle}{\thispagestyle{empty}}
-\mtcselectlanguage{german}
+\usepackage[ngerman]{minitoc} % kleine TOC einfügen
+\mtcsetfeature{secttoc}{after}{\cleardoublepage}
+% \mtcsetfeature{minitoc}{pagestyle}{\thispagestyle{empty}}
+% \mtcselectlanguage{german}
 
 
 %%% Farbendefinitionen                                                %%

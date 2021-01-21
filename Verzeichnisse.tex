@@ -1,18 +1,19 @@
 \pagestyle{plain}					% keine Kopf- und Fußzeilen ab hier (am Ende der tex wieder aufgehoben)
 \pagenumbering{Roman}							% römische Seitennummerierung
 
-\dominitoc
+\dosecttoc
 \tableofcontents								% Inhaltsverzeichnis
 
 
 \addcontentsline{toc}{section}{Abkürzungsverzeichnis} % manuell ins Inhaltsverzeichins fügen
 \section*{Abkürzungsverzeichnis}
 \begin{acronym}[MMMMMMM]
-	\acro{ca.}{cirka}
+	\acro{ca}[ca.]{cirka}
 	\acro{EL}{Esslöffel}
-	\acro{geh.}{gehäuft}
-	\acro{Msp.}{Messerspitze}
-	\acro{Pck.}{Päckchen}
+	\acro{geh}[geh.]{gehäuft}
+	\acro{Msp}[Msp.]{Messerspitze}
+	\acro{Pck}[Pck.]{Päckchen}
+	\acro{Ta}[Ta.]{Tasse}
 	\acro{TL}{Teelöffel}
 
 \end{acronym}
@@ -21,8 +22,8 @@
 \cleardoublepage								% neue (rechte) Seite
 \setcounter{page}{0}
 \pagenumbering{arabic}							% arabische (normale) Seitenzahlen
-\renewcommand\thechapter{\arabic{chapter}}
-\renewcommand\thesection{\thechapter.\arabic{section}}
+
+\renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
 \pagestyle{fancy}							%Kopf- und Fußzeile wird ab hier wieder angezeigt
