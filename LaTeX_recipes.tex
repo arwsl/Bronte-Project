@@ -131,6 +131,10 @@
 	\section{#1}
 	\secttoc
 }
+\newcommand{\partwithtoc}[1]{
+	\part{#1}
+	\parttoc
+}
 
 
 
@@ -156,22 +160,27 @@
 	\part{Hauptgerichte}
 		\sectionwithtoc{Eintopf-Gerichte}
 			\input{Hauptgerichte/Eintoepfe/Bunter_Kichererbseneintopf/Bunter_Kichererbseneintopf}
+		\clearpage
 		\sectionwithtoc{Nudel-Gerichte}
 			\input{Hauptgerichte/Nudelgerichte/Lazy_Noodles/Lazy_Noodles}
 
 	\cleardoublepage
-	\part{Nachspeisen}
+	\partwithtoc{Nachspeisen}
+		\input{Nachspeisen/Glutenfreie_Waffeln/Glutenfreie_Waffeln}
 
 	\cleardoublepage
 	\part{Gebäck}
 		\sectionwithtoc{Brote}
 			\input{Gebaeck/Brote/Bananenbrot/Bananenbrot}
 			\input{Gebaeck/Brote/Mediterranes_Baguette/Mediterranes_Baguette}
+		\clearpage
 		\sectionwithtoc{Brötchen}
+		\clearpage
 		\sectionwithtoc{Kekse}
 			\input{Gebaeck/Kekse/Johannisbeerlebkuchen/Johannisbeerlebkuchen}
 			\input{Gebaeck/Kekse/Rosmarin-Heidesand/Rosmarin-Heidesand}
 			\input{Gebaeck/Kekse/Lussekatter/Lussekatter}
+		\clearpage
 		\sectionwithtoc{Kuchen}
 			\input{Gebaeck/Kuchen/Lebkuchen-Brownies/Lebkuchen-Brownies}
 			\input{Gebaeck/Kuchen/Apfel-Knusper-Muffins/Apfel-Knusper-Muffins}
@@ -179,6 +188,7 @@
 	\cleardoublepage
 	\part{Getränke}
 		\sectionwithtoc{Alkoholische Getränke}
+		\clearpage
 		\sectionwithtoc{Nicht-alkoholische Getränke}
 
 
