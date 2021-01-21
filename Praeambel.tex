@@ -62,9 +62,17 @@ oneside,
 
 
 \usepackage[ngerman]{minitoc} % kleine TOC einfügen
-\mtcsetfeature{secttoc}{after}{\cleardoublepage}
+\mtcsetfeature{secttoc}{after}{\clearpage}
 % \mtcsetfeature{minitoc}{pagestyle}{\thispagestyle{empty}}
 % \mtcselectlanguage{german}
+
+\usepackage{makeidx}
+\AtBeginDocument{\renewcommand{\indexname}{Stichwortverzeichnis\vspace{1cm}}}
+\renewcommand{\seename}{siehe}
+\renewcommand{\alsoname}{siehe auch}
+\newcommand{\addtoidx}[1]{#1\index{#1}}
+\newcommand{\addsubidx}[2]{#1\index{#1!#2}}
+\makeindex
 
 
 %%% Farbendefinitionen                                                %%
