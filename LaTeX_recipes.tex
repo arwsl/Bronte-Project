@@ -64,7 +64,7 @@
 \setHeadlines{
 	inghead = Zutaten,
 	prephead = Zubereitung,
-	hinthead = Anmerkungen,
+	hinthead = Anmerkung,
 	continuationhead = { },
 	continuationfoot = { },
 	portionvalue = Portion(en),
@@ -131,12 +131,12 @@
 	\section{#1}
 	\secttoc
 }
-\newcommand{\partwithtoc}[1]{
-	\part{#1}
-	\parttoc
-}
+% \newcommand{\partwithtoc}[1]{
+% 	\part{#1}
+% 	\parttoc
+% }
 
-
+% \SI[parse-numbers = false]{\nicefrac{1}{2}}{\Ta} &
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -160,7 +160,8 @@
 	\cleardoublepage
 	\part{Hauptgerichte}
 		\sectionwithtoc{Aufläufe}
-			\input{Hauptgerichte/Auflaeufe/LinsenMoussaka/Linsen_Moussaka}
+			\input{Hauptgerichte/Auflaeufe/Linsen_Moussaka/Linsen_Moussaka}
+			\input{Hauptgerichte/Auflaeufe/Kichererbsen-Nudelauflauf/Kichererbsen-Nudelauflauf}
 		\sectionwithtoc{Eintopf-Gerichte}
 			\input{Hauptgerichte/Eintoepfe/Bunter_Kichererbseneintopf/Bunter_Kichererbseneintopf}
 			\input{Hauptgerichte/Eintoepfe/Kuerbisrisotto/Kuerbisrisotto}
@@ -175,7 +176,7 @@
 	\part{Nachspeisen}
 	\sectionwithtoc{Nachspeisen}
 		\input{Nachspeisen/Glutenfreie_Waffeln/Glutenfreie_Waffeln}
-		% \input{Nachspeisen/Snickers-Datteln/Snickers-Datteln}
+		\input{Nachspeisen/Snickers-Datteln/Snickers-Datteln}
 
 	\cleardoublepage
 	\part{Gebäck}
