@@ -31,4 +31,6 @@
 *.synctex(busy)
 LaTeX_recipes.pdf
 *.mtc*
+*.stc*
+*.ptc*
 *.plb
