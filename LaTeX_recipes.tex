@@ -91,7 +91,9 @@
 {
 	\markright{\MakeUppercase{\thesection.\ #1}}
 }
-
+\setlength{\evensidemargin}{0cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\textheight}{23.0cm}
 % lange Zutatenliste:
 % https://stackoverflow.com/questions/64688876/using-xcookybooky-in-latex-i-have-many-ingredients-but-it-does-go-into-the-nex
 
@@ -131,6 +133,9 @@
 	\section{#1}
 	\secttoc
 }
+\newenvironment{recipeDP}{\clearpage
+\begin{recipe}}{\end{recipe}}
+
 % \newcommand{\partwithtoc}[1]{
 % 	\part{#1}
 % 	\parttoc
@@ -144,9 +149,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-
 	\input{Deckblatt}
-
 	\input{Vorwort}
 	\input{Verzeichnisse}
 
@@ -157,51 +160,57 @@
 			\input{Vorspeisen/Salate/Asiatischer_Krautsalat/Asiatischer_Krautsalat}
 			\input{Vorspeisen/Salate/Bohnensalat/Bohnensalat}
 
+	\newpage
+	\newpage
 	\cleardoublepage
 	\part{Hauptgerichte}
 		\sectionwithtoc{Aufläufe}
 			\input{Hauptgerichte/Auflaeufe/Linsen_Moussaka/Linsen_Moussaka}
 			\input{Hauptgerichte/Auflaeufe/Kichererbsen-Nudelauflauf/Kichererbsen-Nudelauflauf}
+	\clearpage
 		\sectionwithtoc{Eintopf-Gerichte}
 			\input{Hauptgerichte/Eintoepfe/Bunter_Kichererbseneintopf/Bunter_Kichererbseneintopf}
 			\input{Hauptgerichte/Eintoepfe/Kuerbisrisotto/Kuerbisrisotto}
-		\clearpage
+	\clearpage
 		\sectionwithtoc{Nudel-Gerichte}
 			\input{Hauptgerichte/Nudelgerichte/Lazy_Noodles/Lazy_Noodles}
-		\clearpage
+	\clearpage
 		\sectionwithtoc{Pfannen-Gerichte}
 			\input{Hauptgerichte/Pfannengerichte/Tofu_in_Erdnusssosse/Tofu_in_Erdnusssosse}
 
+	\clearpage
 	\cleardoublepage
 	\part{Nachspeisen}
 	\sectionwithtoc{Nachspeisen}
 		\input{Nachspeisen/Glutenfreie_Waffeln/Glutenfreie_Waffeln}
 		\input{Nachspeisen/Snickers-Datteln/Snickers-Datteln}
 
+	\clearpage
 	\cleardoublepage
 	\part{Gebäck}
 		\sectionwithtoc{Brote}
 			\input{Gebaeck/Brote/Bananenbrot/Bananenbrot}
 			\input{Gebaeck/Brote/Mediterranes_Baguette/Mediterranes_Baguette}
-		\clearpage
+	\clearpage
 		\sectionwithtoc{Brötchen}
-		\clearpage
+	\clearpage
 		\sectionwithtoc{Kekse}
 			\input{Gebaeck/Kekse/Johannisbeerlebkuchen/Johannisbeerlebkuchen}
 			\input{Gebaeck/Kekse/Rosmarin-Heidesand/Rosmarin-Heidesand}
 			\input{Gebaeck/Kekse/Lussekatter/Lussekatter}
 			\input{Gebaeck/Kekse/Kokosmakronen/Kokosmakronen}
-		\clearpage
+	\clearpage
 		\sectionwithtoc{Kuchen}
 			\input{Gebaeck/Kuchen/Lebkuchen-Brownies/Lebkuchen-Brownies}
 			\input{Gebaeck/Kuchen/Apfel-Knusper-Muffins/Apfel-Knusper-Muffins}
 
+	\clearpage
 	\cleardoublepage
 	\part{Getränke}
 		\sectionwithtoc{Alkoholische Getränke}
 			\input{Getraenke/alkoholische_Getraenke/Malibu_Pina_Colada/Malibu_Pina_Colada}
 			\input{Getraenke/alkoholische_Getraenke/Malibu_Sun_Splash/Malibu_Sun_Splash}
-		\clearpage
+	\clearpage
 		\sectionwithtoc{Nicht-alkoholische Getränke}
 
 
@@ -210,7 +219,7 @@
 	\printindex
 
 
-		% \begin{recipe}
+		% \begin{recipeDP}
 		%     [
 		%         preparationtime = {\SI{15}{\minute}},
 		%         bakingtime = {\SI{12}{\minute} bis \SI{15}{\minute}},
@@ -240,8 +249,8 @@
 		% 		Suggestion
 		%     }
 		%
-		%     \hint{Hint}
+		%     \spaceHint{Hint}
 		%
-		% \end{recipe}
+		% \end{recipeDP}
 
 \end{document}
