@@ -99,22 +99,6 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Kopf- und Fußzeile                                                %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \usepackage[automark]{scrlayer-scrpage}									% eigene Kopf-/Fusszeile
-%% Kopfzeile: links auf ungeraden, rechts auf geraden Seiten:
-%\ihead{}
-%% dazu: immer zentriert (Labor und Versuch):
-%\chead{}
-%% dazu: rechts auf ungeraden, links auf geraden Seiten
-%\ohead{}
-%% Fußzeile: links auf ungeraden, rechts auf geraden Seiten:
-%\ifoot{}
-%% dazu: rechts auf ungeraden, links auf geraden Seiten:
-%\ofoot{\pagemark}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Counter setzen                                                    %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -185,11 +169,12 @@
 	\clearpage
 		\sectionwithtoc{Aufstriche und Dips}
 			\input{Vorspeisen_und_Beilagen/Aufstriche_und_Dips/Mayonnaise/Mayonnaise}
+			\input{Vorspeisen_und_Beilagen/Aufstriche_und_Dips/Hummus/Hummus}
 
 	\clearpage
 	\cleardoublepage
 	\part{Hauptgerichte}
-		\sectionwithtoc{Aufläufe}
+		\sectionwithtoc{Aufläufe} % Ofengerichte
 			\input{Hauptgerichte/Auflaeufe/Linsen_Moussaka/Linsen_Moussaka}
 			\input{Hauptgerichte/Auflaeufe/Kichererbsen-Nudelauflauf/Kichererbsen-Nudelauflauf}
 	\clearpage
@@ -269,7 +254,7 @@
 		%     % \graph
 		%     %     {
 		%     %         big=example-image
-		%     %         small=Recipes/MainCourses/BBQChicken/Small.jpg
+		%     %         small=Small.jpg
 		%     %     }
 		%
 		%     % \introduction{einleitung}
