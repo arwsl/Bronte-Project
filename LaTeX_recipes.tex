@@ -104,7 +104,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\setcounter{section}{1}												% starte mit anderer Überschrift-Nr. (+1)
 \setcounter{page}{0}													% starte mit anderer Seitenzahl
-%\setcounter{equation}{0}												% starte mit anderer Gleichungsnummer
+
+% Rezepte Zählen
+\newcounter{recipeCntr}
+\setcounter{recipeCntr}{0}
+
 
 \setcounter{secnumdepth}{0}
 \setcounter{tocdepth}{3}
@@ -118,11 +122,14 @@
 	\secttoc
 }
 
-% Rezept auf neuer Seite starten
-\newenvironment{recipeDP}{\clearpage\begin{recipe}}{\end{recipe}}
+% Rezept auf gleicher Seite starten (single page)
+\newenvironment{recipeSP}{\stepcounter{recipeCntr}\begin{recipe}}{\end{recipe}}
+% Rezept auf neuer Seite starten (double page)
+\newenvironment{recipeDP}{\clearpage\stepcounter{recipeCntr}\begin{recipe}}{\end{recipe}}
 
 % Neue, nicht getestete Rezepte
 \newenvironment{recipeToTest}{
+	\stepcounter{recipeCntr}
 	{noch testen!} \\
 		\begin{tikzpicture}
 			\filldraw [fill=sundown,draw=sundown] (0,0) rectangle (15,0.3);
@@ -239,7 +246,9 @@
 
 
 	\clearpage
+	\pagestyle{plain}
 	\addcontentsline{toc}{part}{Stichwortverzeichnis}
+	\indexprologue{\noindent Insgesamt \therecipeCntr\:Rezepte enthalten die folgende Begriffe. Es werden markante Zutaten oder Schlagworte referenziert.}
 	\printindex
 
 
