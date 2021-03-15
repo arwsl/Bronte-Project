@@ -22,3 +22,7 @@ jobs:
         uses: dante-ev/latex-action@master
         with:
           root_file: LaTeX_recipes.tex
+      - uses: actions/upload-artifact@v2
+        with:
+          name: PDF
+          path: LaTeX_recipes.pdf
