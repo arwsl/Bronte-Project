@@ -74,13 +74,13 @@ twoside,
 % \mtcsetfeature{minitoc}{pagestyle}{\thispagestyle{empty}}
 
 
-\usepackage{makeidx}
+\usepackage{imakeidx}
 \AtBeginDocument{\renewcommand{\indexname}{Stichwortverzeichnis\vspace{1cm}}}
 \renewcommand{\seename}{siehe}
 \renewcommand{\alsoname}{siehe auch}
 \newcommand{\addtoidx}[1]{#1\index{#1}}
 \newcommand{\addsubidx}[2]{#1\index{#1!#2}}
-\makeindex
+\makeindex[columns=2]
 
 
 %%% Farbendefinitionen                                                %%

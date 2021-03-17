@@ -99,28 +99,16 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Kopf- und Fußzeile                                                %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \usepackage[automark]{scrlayer-scrpage}									% eigene Kopf-/Fusszeile
-%% Kopfzeile: links auf ungeraden, rechts auf geraden Seiten:
-%\ihead{}
-%% dazu: immer zentriert (Labor und Versuch):
-%\chead{}
-%% dazu: rechts auf ungeraden, links auf geraden Seiten
-%\ohead{}
-%% Fußzeile: links auf ungeraden, rechts auf geraden Seiten:
-%\ifoot{}
-%% dazu: rechts auf ungeraden, links auf geraden Seiten:
-%\ofoot{\pagemark}
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Counter setzen                                                    %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\setcounter{section}{1}												% starte mit anderer Überschrift-Nr. (+1)
 \setcounter{page}{0}													% starte mit anderer Seitenzahl
-%\setcounter{equation}{0}												% starte mit anderer Gleichungsnummer
+
+% Rezepte Zählen
+\newcounter{recipeCntr}
+\setcounter{recipeCntr}{0}
+
 
 \setcounter{secnumdepth}{0}
 \setcounter{tocdepth}{3}
@@ -133,8 +121,27 @@
 	\section{#1}
 	\secttoc
 }
-\newenvironment{recipeDP}{\clearpage
-\begin{recipe}}{\end{recipe}}
+
+% Rezept auf gleicher Seite starten (single page)
+\newenvironment{recipeSP}{\stepcounter{recipeCntr}\begin{recipe}}{\end{recipe}}
+% Rezept auf neuer Seite starten (double page)
+\newenvironment{recipeDP}{\clearpage\stepcounter{recipeCntr}\begin{recipe}}{\end{recipe}}
+
+% Neue, nicht getestete Rezepte
+\newenvironment{recipeToTest}{
+	\stepcounter{recipeCntr}
+	{noch testen!} \\
+		\begin{tikzpicture}
+			\filldraw [fill=sundown,draw=sundown] (0,0) rectangle (15,0.3);
+		\end{tikzpicture}\\
+	\begin{recipe}
+}{
+	\end{recipe}
+		\begin{tikzpicture}
+			\filldraw [fill=sundown,draw=sundown] (0,0) rectangle (15,0.3);
+		\end{tikzpicture}
+}
+\newenvironment{recipeDPToTest}{\clearpage\begin{recipeToTest}}{\end{recipeToTest}}
 
 % \newcommand{\partwithtoc}[1]{
 % 	\part{#1}
@@ -153,25 +160,40 @@
 	\input{Vorwort}
 	\input{Verzeichnisse}
 
+	\clearpage
 	\cleardoublepage
-	\part{Vorspeisen}
-		\sectionwithtoc{Salate}
-			\input{Vorspeisen/Salate/Kartoffel-Radieschen-Salat/Kartoffel-Radieschen-Salat}
-			\input{Vorspeisen/Salate/Asiatischer_Krautsalat/Asiatischer_Krautsalat}
-			\input{Vorspeisen/Salate/Bohnensalat/Bohnensalat}
+	\part{Frühstück}
+		\sectionwithtoc{Zerealien}
+			\input{Frühstück/Zerealien/Porridge/Porridge}
 
-	\newpage
-	\newpage
+
+	\clearpage
+	\cleardoublepage
+	\part{Vorspeisen und Beilagen}
+		\sectionwithtoc{Salate} % und Dressing
+			\input{Vorspeisen_und_Beilagen/Salate/Kartoffel-Radieschen-Salat/Kartoffel-Radieschen-Salat}
+			\input{Vorspeisen_und_Beilagen/Salate/Asiatischer_Krautsalat/Asiatischer_Krautsalat}
+			\input{Vorspeisen_und_Beilagen/Salate/Bohnensalat/Bohnensalat}
+			\input{Vorspeisen_und_Beilagen/Salate/Rotkohlsalat/Rotkohlsalat}
+	\clearpage
+		\sectionwithtoc{Aufstriche und Dips}
+			\input{Vorspeisen_und_Beilagen/Aufstriche_und_Dips/Mayonnaise/Mayonnaise}
+			\input{Vorspeisen_und_Beilagen/Aufstriche_und_Dips/Hummus/Hummus}
+
+
+	\clearpage
 	\cleardoublepage
 	\part{Hauptgerichte}
-		\sectionwithtoc{Aufläufe}
+		\sectionwithtoc{Aufläufe} % Ofengerichte
 			\input{Hauptgerichte/Auflaeufe/Linsen_Moussaka/Linsen_Moussaka}
 			\input{Hauptgerichte/Auflaeufe/Kichererbsen-Nudelauflauf/Kichererbsen-Nudelauflauf}
 	\clearpage
-		\sectionwithtoc{Eintopf-Gerichte}
-			\input{Hauptgerichte/Eintoepfe/Bunter_Kichererbseneintopf/Bunter_Kichererbseneintopf}
-			\input{Hauptgerichte/Eintoepfe/Kuerbisrisotto/Kuerbisrisotto}
-			\input{Hauptgerichte/Eintoepfe/Rote_Linsen_Curry/Rote_Linsen_Curry}
+		\sectionwithtoc{Suppen und Eintöpfe}
+			\input{Hauptgerichte/Suppen_und_Eintoepfe/Bunter_Kichererbseneintopf/Bunter_Kichererbseneintopf}
+			\input{Hauptgerichte/Suppen_und_Eintoepfe/Kuerbisrisotto/Kuerbisrisotto}
+			\input{Hauptgerichte/Suppen_und_Eintoepfe/Rote_Linsen_Curry/Rote_Linsen_Curry}
+			\input{Hauptgerichte/Suppen_und_Eintoepfe/Kuerbisgulasch/Kuerbisgulasch}
+			\input{Hauptgerichte/Suppen_und_Eintoepfe/Pilzsuppe/Pilzsuppe}
 	\clearpage
 		\sectionwithtoc{Nudel-Gerichte}
 			\input{Hauptgerichte/Nudelgerichte/Lazy_Noodles/Lazy_Noodles}
@@ -180,13 +202,26 @@
 		\sectionwithtoc{Pfannen-Gerichte}
 			\input{Hauptgerichte/Pfannengerichte/Tofu_in_Erdnusssosse/Tofu_in_Erdnusssosse}
 			\input{Hauptgerichte/Pfannengerichte/Kartoffel-Zucchini-Bratlinge/Kartoffel-Zucchini-Bratlinge}
+			\input{Hauptgerichte/Pfannengerichte/Wuerziger_Kichererbsenburger/Wuerziger_Kichererbsenburger}
+	\clearpage
+		\sectionwithtoc{Fingerfood}
+			\input{Hauptgerichte/Fingerfood/Tortilla-Couscous-Röllchen/Tortilla-Couscous-Röllchen}
+			\input{Hauptgerichte/Fingerfood/Herzhafte_Zucchini-Waffelbites/Herzhafte_Zucchini-Waffelbites}
+			\input{Hauptgerichte/Fingerfood/Blätterteig-Schnecken_mit_Spinat/Blätterteig-Schnecken_mit_Spinat}
+			\input{Hauptgerichte/Fingerfood/Kaesestangen/Kaesestangen}
+
 
 	\clearpage
 	\cleardoublepage
-	\part{Nachspeisen}
-	\sectionwithtoc{Nachspeisen}
-		\input{Nachspeisen/Glutenfreie_Waffeln/Glutenfreie_Waffeln}
-		\input{Nachspeisen/Snickers-Datteln/Snickers-Datteln}
+	\part{Nachspeisen und Snacks}
+		\sectionwithtoc{Nachspeisen}
+			\input{Nachspeisen_und_Snacks/Nachspeisen/Glutenfreie_Waffeln/Glutenfreie_Waffeln}
+	\clearpage
+		\sectionwithtoc{Snacks}
+			\input{Nachspeisen_und_Snacks/Snacks/Snickers-Datteln/Snickers-Datteln}
+			\input{Nachspeisen_und_Snacks/Snacks/Energieriegel_mit_Blaubeeren/Energieriegel_mit_Blaubeeren}
+			\input{Nachspeisen_und_Snacks/Snacks/Protein_Flapjacks/Protein_Flapjacks}
+
 
 	\clearpage
 	\cleardoublepage
@@ -207,6 +242,7 @@
 			\input{Gebaeck/Kuchen/Lebkuchen-Brownies/Lebkuchen-Brownies}
 			\input{Gebaeck/Kuchen/Apfel-Knusper-Muffins/Apfel-Knusper-Muffins}
 
+
 	\clearpage
 	\cleardoublepage
 	\part{Getränke}
@@ -215,10 +251,13 @@
 			\input{Getraenke/alkoholische_Getraenke/Malibu_Sun_Splash/Malibu_Sun_Splash}
 	\clearpage
 		\sectionwithtoc{Nicht-alkoholische Getränke}
+			\input{Getraenke/nichtalkoholische_Getränke/Protein_Smoothie/Protein_Smoothie}
 
 
 	\clearpage
+	\pagestyle{plain}
 	\addcontentsline{toc}{part}{Stichwortverzeichnis}
+	\indexprologue{\noindent Insgesamt\:\therecipeCntr\:Rezepte enthalten die folgende Begriffe. Es werden nur markante Zutaten oder Schlagworte referenziert.}
 	\printindex
 
 
@@ -226,7 +265,7 @@
 		%     [
 		%         preparationtime = {\SI{15}{\minute}},
 		%         bakingtime = {\SI{12}{\minute} bis \SI{15}{\minute}},
-		%         bakingtemperature = {\protect\bakingtemperature{fanoven=\SI{180}{\degree}}},
+		%         bakingtemperature = {\protect\bakingtemperature{fanoven=\SI{180}{\celsius}}},
 		%         portion = {40 Stück},
 		%         source = {Stina Spiegelberg}
 		%     ]
@@ -235,7 +274,7 @@
 		%     % \graph
 		%     %     {
 		%     %         big=example-image
-		%     %         small=Recipes/MainCourses/BBQChicken/Small.jpg
+		%     %         small=Small.jpg
 		%     %     }
 		%
 		%     % \introduction{einleitung}
