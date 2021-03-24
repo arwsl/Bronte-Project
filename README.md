@@ -4,7 +4,7 @@
 Mit Hilfe des <img src="https://latex.codecogs.com/gif.latex?\LaTeX" />-Pakets [`xcookybooky`](https://www.ctan.org/pkg/xcookybooky).
 
 ## Inhalte dieser `README.md`
-* [Inhalte des Kochbuchs](#Inhalte)
+* [Beispiele: Auszüge der Rezepte](#Auszüge)
 * [Beitrag leisten](#Beitragleisten)
   * [Synopse: `xcookybooky`-Paket](#Synopse)
   * [Rezept einpflegen](#einpflegen)
@@ -17,8 +17,14 @@ Mit Hilfe des <img src="https://latex.codecogs.com/gif.latex?\LaTeX" />-Pakets [
     * [Code-Beispiel](#Code-Beispiel)
 
 ---
-<a name="Inhalte"></a>
-# Inhalte des Kochbuchs
+<a name="Auszüge"></a>
+# Beispiele: Auszüge der Rezepte
+
+![image1](Hauptgerichte/Auflaeufe/Kichererbsen-Nudelauflauf/KichererbsenNudelauflauf.jpg)
+---
+![image2](Hauptgerichte/Suppen_und_Eintoepfe/Rote_Linsen_Curry/RoteLinsenCurry.jpg)
+---
+![image3](Hauptgerichte/Nudelgerichte/Brokkoli_und_Kicherebsen/BrokkoliundKichererbsen.jpg)
 
 ---
 <a name="Beitragleisten"></a>
@@ -33,6 +39,7 @@ Für jeden, der sich am Kochbuch beteiligen will - vor allem aber für mich selb
 
 <a name="Ordnerstruktur"></a>
 ### Ordnerstruktur im Repository
+Die Sortierung der Rezepte erfolgt auf erster Ebene in den Teilen (`\part{}`) I. bis VI., die eine grobe Sortierung vornehmen. Diese bilden auch die oberste Ordnerstruktur im Repository. Feiner wird dann in Unterkategorien (`\section{}`) sortiert. Diese wiederum werden durch Unterordner an den richtigen Stellen repräsentiert. In den Unterordnern wird dann für jedes Rezept ein Ordner angelegt, in dem die zugehörige `.tex`-Datei (siehe [Code-Beispiel](#Code-Beispiel)) sowie Bilddateien oder andere Rohdateien ihren Platz finden.
 
 ```
 │
