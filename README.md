@@ -15,6 +15,8 @@ Mit Hilfe des <img src="https://latex.codecogs.com/gif.latex?\LaTeX" />-Pakets [
     * [Stichwortverzeichnis](#Stichwortverzeichnis)
     * [Rezept einbinden](#einbinden)
     * [Code-Beispiel](#Code-Beispiel)
+  * [Fehler finden](#Fehler)
+
 
 ---
 ---
@@ -27,11 +29,13 @@ Mit Hilfe des <img src="https://latex.codecogs.com/gif.latex?\LaTeX" />-Pakets [
 ---
 ![image3](Hauptgerichte/Nudelgerichte/Brokkoli_und_Kicherebsen/BrokkoliundKichererbsen.jpg)
 
+
 ---
 ---
 <a name="Beitragleisten"></a>
 # Beitrag leisten
 Für jeden, der sich am Kochbuch beteiligen will - vor allem aber für mich selbst - ist die Zusammenfassung von allen wichtigen Befehlen und Funktionsweisen der LaTeX-Inhalte. Das `xcookybooky`-Paket liefert das Framework und ist selbst in weiten Teilen sehr modular nutzbar. Ich habe aber eine (übersichtliche?) Ordnerstruktur entworfen und eigene `recipe`-Umgebungen definiert, die die eigentliche `xcookybooky`-Umgebung erweitern. Abbildungen und Einträge im Stichwortverzeichnis lassen sich für jedes Rezept hinzufügen.
+
 
 <a name="Synopse"></a>
 ## Synopse: [`xcookybooky`](https://www.ctan.org/pkg/xcookybooky)-Paket
@@ -40,12 +44,16 @@ Für jeden, der sich am Kochbuch beteiligen will - vor allem aber für mich selb
 3. **`\ingredients`**: Schafft die tabellarische Formatierung der benötigten Zutaten; dazu das LaTeX-typische `&`-Trennzeichen und den Zeilenumbruch `\\` verwenden. Zudem empfiehlt sich das [`siunitx`-Paket](#siunitx).
 4. **`\preparation`**: Erzeugt den Textkörper der Durchführungsschritte mit Nummerierung in Form von Initialen.
 5. **`\introduction`**: Ermöglicht das Hinzufügen eines Einführungstextes vor dem eigentlichen Rezept, aber nach den Kurzinformationen unter den Bildern.
-6. **`\suggestion`**: 
-7. **`\portion`**:
-8. **`\bakingtemperature`**:
+6. **`\suggestion`**: Fügt nach den Zutaten und der Anleitung eine horizontale Abtrennung ein. Es lässt sich eine Übercshrift definieren und ein Textkörer einfügen. In jedem Rezept können mehrere `\suggestion` eingefügt werden.
+7. **`\hint`**: Fügt einen farblich hervorgehobenen Abschnitt unten auf einer Seite hinzu. Hier lassen sich Hinweise zum Rezeot geben.
+8. **`\portion`**: Hiermit können Portionen-Einträge einheitlich formatiert dargestellt werden, zum Beispiel: `\portion[Leute]{5}`. Die Verwendung ist nicht zwangsweise notwendig.
+9. **`\bakingtemperature`**: Diese Makro fügt zu den angegebenen Backtemperaturen kleine Icons ein. Unterschieden werden: Umluft (`fanoven`), Ober- und Unterhitze (`topbottomheat`), Oberhitze (`topheat`), Unterhitze (`bottomheat`) und Gasofen (`gasstove`).
+
 
 <a name="einpflegen"></a>
 ## Rezept einpflegen
+Um neue Rezepte in die Sammslung einzupflegen, muss nur ein neuer Ordner mit dem Namen des Rezepts im richtigen Unterordner erstellt werden. Darin kann dann die eigentliche `.tex`-Datei erstellt werden (aus der [Vorlage](#Code-Beispiel)), in der die `recipe`-Umgebung das Rezept richtig setzt. Sind alle Felder ausgefüllt oder auskommentiert, und alle Stichwörter ins Stichwortverzeichnis eingefügt, kann das Rezept in der `main`-Datei **`LaTeX_recipes.tex`** mittels `\input{}` eingebunden werden.
+
 
 <a name="Ordnerstruktur"></a>
 ### Ordnerstruktur im Repository
@@ -76,23 +84,62 @@ Die Sortierung der Rezepte erfolgt auf erster Ebene in den Teilen (`\part{}`) I.
     └── Salate
 ```
 
+
 <a name="recipe-Umgebungen"></a>
 ### `recipe`-Umgebungen
+Die originale `recipe`-Umgebung aus dem `xcookybooky`-Paket ist zwar gut darin, das Rezept korrekt und schön zu setzen, die Formatierung mit mehreren Rezepten nacheinander funktioniert aber nicht so gut: die Bilder machen manchmal komische Sachen und rutschen auf den Seiten hin und her und überdecken zum Teil den Text. **Diese Umgebung wird nicht benutzt!** Alle neuen Umgebungen benutzen den globalen Zähler`recipeCntr`, sodass die Gesamtzahl der Rezepte automatisch durch zählt. Unter anderem daher die neu definierten Umgebungen:
+* `recipeSP`, fügt keinen Seitenumbruch ein, ist daher von der Formatierung wie `recipe` selbst. Hier kommt daher nur die automatische Zähung dazu. Benutzung nur mit großer Vorsicht!
+* `recipeDP`, fügt einen Seitenumbruch nach einem Rezept ein. Damit sollten keine Formatierungsfehler mehr passieren, allerdings kann viel Weißraum entstehen.
+
+Für die Arbeit auf anderen _branches_ als dem _main_ bieten die folgenden zwei Umgebungen Hilfestellung. Sie machen kenntlich, welche Rezepte noch zu erproben sind und fügen zu visuellen Unterscheidung einen kurzen Text und einen farbigen Balken ein:
+* `recipeSPToTest`, verhält sich wie `recipeSP` mit einem farbigen Balken.
+* `recipeDPToTest`, verhält sich wie `recipeDP` mit einem farbigen Balken.
+
 
 <a name="siunitx"></a>
 ### [`siunitx`](https://ctan.org/pkg/siunitx)-Paket
+Um Physikalische Größen in Zahlenwert und Einheit korrekt (also richtig formatiert) darzustellen, gibt es in LaTeX das `siunitx`-Paket. Der wichtigste Befehl ist ```\SI{ZAHLENWERT}{EINHEIT}``` wobei die Einheiten entweder aus den mitgelieferten Befehlen stammen oder eine eigene sein kann.
+
+Einheit   | Befehl   | Kurzform
+----------|----------|----------
+Gramm | `\gram` | `\g`
+Kilogramm | `\kilogram` | `\kg`
+Liter | `\milli\litre` | `\l`
+Milliliter | `\litre` | `\ml`
+
+Um auch andere Einheiten nutzen zu können gibt es in diesem Projekt die weiteren, selbst definierten Makros, die gleichzeitig auf das Abkürzungsverzeichnis verweisen:
+
+Einheit   | Befehl
+----------|----------
+Esslöffel | `\EL`
+Messerspitze | `\Msp`
+Päckchen | `\Pck`
+Tasse | `\Ta`
+Teelöffel | `\TL`
+
+Darüber hinaus gibt es noch die Makros, die zu den Zahlenwerten geschrieben werden können: `\ca` (cirka) und `\geh` (gehäuft).
+
 
 <a name="Abbildungen"></a>
 ### Abbildungen
+Die Abbildungen, die über dem Rezept selbst stehen und mit dem `\graph`-Befehl hinzugefügt werden müssen in einem bestimmen Seitenverhältnis eingefügt werden, um den gesamten Platz auszufüllen. Das kleine (_small_) und große (_big_) Bild werden gleich groß dargestellt, wenn
+ * _small_: Verhältnis von Bildbreite zu Bildhöhe 7/4 und
+ * _big_: Verhältnis von Bildbreite zu Bildhöhe 11/4.
+Diese Formate werden durch die Einstellung der `pictureheight` und `bigpicturewidth` bzw. `smallpicturewidth` festgelegt. Daher müssen die eingebundenen Bilder `small.jpg` und `big.jpg` dieses Bildformat haben, um ideal auf dioe Seite zu passen.
+
 
 <a name="Stichwortverzeichnis"></a>
 ### Stichwortverzeichnis
 
+
+
 <a name="einbinden"></a>
 ### Rezept einbinden
 
+
 <a name="Code-Beispiel"></a>
 ### Code-Beispiel
+Das Beispiel zeigt alle Mögichkeiten auf, Teile können ungenutzt auskommentiert werden - abhängig vom Rezept.
 
 ```latex
 \begin{RECIPE-UMGEBUNG}
@@ -139,3 +186,8 @@ Die Sortierung der Rezepte erfolgt auf erster Ebene in den Teilen (`\part{}`) I.
 
 \end{RECIPE-UMGEBUNG}
 ```
+
+
+<a name="Fehler"></a>
+## Fehler finden
+Alle Schreibfehler die auffallen - auch in bereits eingetragenen Rezepten - gerne korrigieren. In der Hoffnung, dass die Zahl der Fehler irgendwann mal Null erreicht.
