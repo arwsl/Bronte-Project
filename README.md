@@ -125,16 +125,36 @@ Darüber hinaus gibt es noch die Makros, die zu den Zahlenwerten geschrieben wer
 Die Abbildungen, die über dem Rezept selbst stehen und mit dem `\graph`-Befehl hinzugefügt werden müssen in einem bestimmen Seitenverhältnis eingefügt werden, um den gesamten Platz auszufüllen. Das kleine (_small_) und große (_big_) Bild werden gleich groß dargestellt, wenn
  * _small_: Verhältnis von Bildbreite zu Bildhöhe 7/4 und
  * _big_: Verhältnis von Bildbreite zu Bildhöhe 11/4.
+
 Diese Formate werden durch die Einstellung der `pictureheight` und `bigpicturewidth` bzw. `smallpicturewidth` festgelegt. Daher müssen die eingebundenen Bilder `small.jpg` und `big.jpg` dieses Bildformat haben, um ideal auf dioe Seite zu passen.
 
 
 <a name="Stichwortverzeichnis"></a>
 ### Stichwortverzeichnis
-
+Im Stichwortverzeichnis sollen Begriffe zusammengefasst werden, die charakteristisch für ein Rezept sind, mit denen man möglichst genau das findet, wonach man sucht. Das benutzte Paket ![`imakeidx`](https://www.ctan.org/pkg/imakeidx) liefert `\index{EINTRAG}` als Befehl zum Eintragen des EINTRAG in das Stichwortverzeichnis. Es gibt die folgenden Formatierungsmöglichkeiten:
+* **!** ermöglicht es, mehrere Sichtwörter zusammenzufassen. Sie treten dann gemeinsam unter einem Eintrag als Untereinträge auf:
+```
+\index{Kohl!Grün-}		% steht als Grün- im Verzeichnis (unter Kohl)
+\index{Kohl!Rot-}		% steht als Rot- im Verzeichnis (unter Kohl)
+```
+* **@** ermöglicht es, den Wort-Eintrag im Stichwortverzeichnis zu formatieren:
+```
+\index{Kohl@Gurke}		% steht als Gurke im Verzeichnis
+\index{Kohl@\textbf{Kohl}}	% steht als Kohl, fettgedruckt im Verzeichnis	
+```
+* **|** ermöglicht es, den Seitenverweis im Stichwortverzeichnis zu formatieren:
+```
+\index{Kohl|see{Gemüse}}	% steht als Kohl siehe Gemüse im Verzeichnis
+\index{Kohl|textbf}		% steht mit einer fettgedruckten Seitenzahl im Verzeichnis
+```
 
 
 <a name="einbinden"></a>
 ### Rezept einbinden
+Fertig ausgefüllte Rezepte werden an der richtigen Stelle in der `main`-Datei eingebunden mit dem `\input`-Befehl:
+```
+\input{TEIL/KAPITEL/REZEPT/REZEPT.tex}
+```
 
 
 <a name="Code-Beispiel"></a>
