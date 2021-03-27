@@ -128,15 +128,15 @@
 \newenvironment{recipeDP}{\clearpage\stepcounter{recipeCntr}\begin{recipe}}{\end{recipe}}
 
 % Neue, nicht getestete Rezepte
-\newenvironment{recipeToTest}{
+\newenvironment{recipeSPToTest}{
 	\stepcounter{recipeCntr}
 	{noch testen!} \\
 		\begin{tikzpicture}
 			\filldraw [fill=sundown,draw=sundown] (0,0) rectangle (15,0.3);
 		\end{tikzpicture}\\
-	\begin{recipe}
+	\begin{recipeSP}
 }{
-	\end{recipe}
+\end{recipeSP}
 		\begin{tikzpicture}
 			\filldraw [fill=sundown,draw=sundown] (0,0) rectangle (15,0.3);
 		\end{tikzpicture}
