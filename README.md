@@ -1,7 +1,7 @@
 # Bronte-Project
 [DE] Rezeptesammlung - vegane Ideen in LaTeX gegossen
 
-Mit Hilfe des <img src="https://latex.codecogs.com/gif.latex?\LaTeX" />-Pakets [`xcookybooky`](https://www.ctan.org/pkg/xcookybooky).
+Mit Hilfe des ![f1]-Pakets [`xcookybooky`](https://www.ctan.org/pkg/xcookybooky).
 
 ## Inhalte dieser `README.md`
 * [Beispiele: Auszüge der Rezepte](#Auszüge)
@@ -211,3 +211,5 @@ Das Beispiel zeigt alle Mögichkeiten auf, Teile können ungenutzt auskommentier
 <a name="Fehler"></a>
 ## Fehler finden
 Alle Schreibfehler die auffallen - auch in bereits eingetragenen Rezepten - gerne korrigieren. In der Hoffnung, dass die Zahl der Fehler irgendwann mal Null erreicht.
+
+[f1]: https://chart.apis.google.com/chart?cht=tx&chl=\\LaTeX
