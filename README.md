@@ -71,9 +71,10 @@ Die Sortierung der Rezepte erfolgt auf erster Ebene in den Teilen (`\part{}`) I.
 │   ├── alkoholische_Getraenke
 │   └── nichtalkoholische_Getraenke
 ├── Hauptgerichte
-│   ├── Auflaeufe
 │   ├── Fingerfood
+│   ├── Mehrtopfgerichte
 │   ├── Nudelgerichte
+│   ├── Ofengerichte
 │   ├── Pfannengerichte
 │   └── Suppen_und_Eintoepfe
 ├── Nachspeisen_und_Snacks
@@ -140,7 +141,7 @@ Im Stichwortverzeichnis sollen Begriffe zusammengefasst werden, die charakterist
 * **@** ermöglicht es, den Wort-Eintrag im Stichwortverzeichnis zu formatieren:
 ```
 \index{Kohl@Gurke}		% steht als Gurke im Verzeichnis
-\index{Kohl@\textbf{Kohl}}	% steht als Kohl, fettgedruckt im Verzeichnis	
+\index{Kohl@\textbf{Kohl}}	% steht als Kohl, fettgedruckt im Verzeichnis
 ```
 * **|** ermöglicht es, den Seitenverweis im Stichwortverzeichnis zu formatieren:
 ```
