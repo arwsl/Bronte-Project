@@ -155,6 +155,53 @@
 %%% Dokument                                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \begin{RECIPE-UMGEBUNG}
+%     [
+%         preparationtime = {\SI{ZEIT}{\minute}},
+%         bakingtime = {\SI{ZEIT}{\minute} bis \SI{ZEIT}{\minute}},
+%         bakingtemperature = {\protect\bakingtemperature{fanoven=\SI{TEMPERATUR}{\celsius}}},
+%         portion = {PORTIONEN/MENGE},
+%         source = {QUELLE/HERAUSGEBER}
+%     ]
+%     {REZEPTNAME}
+%
+%     \graph
+%         {
+%             big=TEIL/KAPITEL/REZEPT/big.jpg,
+%             small=TEIL/KAPITEL/REZEPT/small.jpg
+%         }
+%
+%     \introduction{
+%         EINLEITUNG
+%     }
+%
+%     \ingredients{
+%         \SI{1}{\ml} & ZUTAT 1 \\
+%         \SI{2}{\g} & ZUTAT 2 \\
+%         \\
+%         \multicolumn{2}{l}{\textbf{ABSCHNITTÜBERSCHRIFT}} \\
+%         \SI{3}{\EL} & ZUTAT 3 \\
+%         4 PRISEN & ZUTAT 4
+%     }
+%
+%     \preparation{
+%         \step ANTLEITUNG IN MEHREREN SCHRITTEN
+%         \step NÄCHSTER SCHRITT...
+%     }
+%
+%     \suggestion[TITEL EINES VORSCHLAGS]{
+% 		VORSCHLAG (DURCH HORIZONTALE LINIE VOM REZEPT GETRENNT)
+%     }
+%
+%     \hint{
+%         HINWEIS (IN EINEM KASTEN UNTEN AUF DER SEITE)
+%     }
+%
+% \end{RECIPE-UMGEBUNG}
+
+
 \begin{document}
 	\input{Deckblatt}
 	\input{Vorwort}
@@ -259,40 +306,5 @@
 	\addcontentsline{toc}{part}{Stichwortverzeichnis}
 	\indexprologue{Insgesamt\:\therecipeCntr\:Rezepte enthalten die folgende Begriffe. Es werden nur markante Zutaten oder Schlagworte referenziert, die Entscheidung, welche Inhalte referenziert werden, ist dabei eher subjektiv; erfolgt aber nach Maßgaben der Relevanz und der Interessanz.}
 	\printindex
-
-
-		% \begin{recipeDP}
-		%     [
-		%         preparationtime = {\SI{15}{\minute}},
-		%         bakingtime = {\SI{12}{\minute} bis \SI{15}{\minute}},
-		%         bakingtemperature = {\protect\bakingtemperature{fanoven=\SI{180}{\celsius}}},
-		%         portion = {40 Stück},
-		%         source = {Stina Spiegelberg}
-		%     ]
-		%     {Name}
-		%
-		%     % \graph
-		%     %     {
-		%     %         big=example-image
-		%     %         small=Small.jpg
-		%     %     }
-		%
-		%     % \introduction{einleitung}
-		%
-		%     \ingredients{
-		%
-		%     }
-		%
-		%     \preparation{
-		%         \step
-		%     }
-		%
-		%     \suggestion[Title of Suggestion]{
-		% 		Suggestion
-		%     }
-		%
-		%     \hint{Hint}
-		%
-		% \end{recipeDP}
 
 \end{document}
