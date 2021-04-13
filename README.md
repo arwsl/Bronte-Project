@@ -23,7 +23,7 @@ Mit Hilfe des ![f1]-Pakets [`xcookybooky`](https://www.ctan.org/pkg/xcookybooky)
 <a name="Auszüge"></a>
 # Beispiele: Auszüge der Rezepte
 
-![image1](Hauptgerichte/Auflaeufe/Kichererbsen-Nudelauflauf/KichererbsenNudelauflauf.jpg)
+![image1](Hauptgerichte/Ofengerichte/Kichererbsen-Nudelauflauf/KichererbsenNudelauflauf.jpg)
 ---
 ![image2](Hauptgerichte/Suppen_und_Eintoepfe/Rote_Linsen_Curry/RoteLinsenCurry.jpg)
 ---
@@ -39,20 +39,20 @@ Für jeden, der sich am Kochbuch beteiligen will - vor allem aber für mich selb
 
 <a name="Synopse"></a>
 ## Synopse: [`xcookybooky`](https://www.ctan.org/pkg/xcookybooky)-Paket
-1. **`recipe`-Umgebung**: Wird verwendet, um Rezepte einzufügen. Jedes Rezept wird in einer eigenen Umbegung eingebunden. Notwendig ist die Angabe des Namens des Rezeptes, optional lassen sich dazu noch die Vorbereitungszeit `preparationtime`, die Backzeit `bakingtime`, die Backtemperatur `bakingtemperature`, die Portionen `portion`, den Brennwert der Mahlzeit `calory`und die Quelle `source` angeben. **Achtung**: die originale `recipe`-Umgebung wird ersetzt duch selbstdefinierte Umgebungen mit den gleichen Optionen, nur anderen Namen (siehe [`recipe`-Umgebungen](#recipe-Umgebungen)). Dies ist zum einen notwendig, um die Plazierung der Bilder zu verbessern und gleichzeitig, um mit einem Zähler alle Rezepte zu indizieren.
+1. **`recipe`-Umgebung**: Wird verwendet, um Rezepte einzufügen. Jedes Rezept wird in einer eigenen Umbegung eingebunden. Notwendig ist die Angabe des Namens des Rezeptes, optional lassen sich dazu noch die Vorbereitungszeit `preparationtime`, die Backzeit `bakingtime`, die Backtemperatur `bakingtemperature`, die Portionen `portion`, den Brennwert der Mahlzeit `calory`und die Quelle `source` angeben. **Achtung**: die originale `recipe`-Umgebung wird ersetzt durch selbst definierte Umgebungen mit den gleichen Optionen, nur anderen Namen (siehe [`recipe`-Umgebungen](#recipe-Umgebungen)). Dies ist zum einen notwendig, um die Platzierung der Bilder zu verbessern und gleichzeitig, um mit einem Zähler alle Rezepte zu indizieren.
 2. **`\graph`**: Ermöglicht das Einbinden von bis zu zwei Abbildungen in einem Rezept: ein kleines (wird der Option `small` zugeordnet) und ein großes (wird der Option `big` zugeordnet). Damit der gesamte Platz ausgenutzt wird, die Bildseitenverhältnisse aus Abschnitt [Abbildungen](#Abbildungen) beachten.
 3. **`\ingredients`**: Schafft die tabellarische Formatierung der benötigten Zutaten; dazu das LaTeX-typische `&`-Trennzeichen und den Zeilenumbruch `\\` verwenden. Zudem empfiehlt sich das [`siunitx`-Paket](#siunitx).
 4. **`\preparation`**: Erzeugt den Textkörper der Durchführungsschritte mit Nummerierung in Form von Initialen.
 5. **`\introduction`**: Ermöglicht das Hinzufügen eines Einführungstextes vor dem eigentlichen Rezept, aber nach den Kurzinformationen unter den Bildern.
-6. **`\suggestion`**: Fügt nach den Zutaten und der Anleitung eine horizontale Abtrennung ein. Es lässt sich eine Übercshrift definieren und ein Textkörer einfügen. In jedem Rezept können mehrere `\suggestion` eingefügt werden.
-7. **`\hint`**: Fügt einen farblich hervorgehobenen Abschnitt unten auf einer Seite hinzu. Hier lassen sich Hinweise zum Rezeot geben.
+6. **`\suggestion`**: Fügt nach den Zutaten und der Anleitung eine horizontale Abtrennung ein. Es lässt sich eine Überschrift definieren und ein Textkörper einfügen. In jedem Rezept können mehrere `\suggestion` eingefügt werden.
+7. **`\hint`**: Fügt einen farblich hervorgehobenen Abschnitt unten auf einer Seite hinzu. Hier lassen sich Hinweise zum Rezept geben.
 8. **`\portion`**: Hiermit können Portionen-Einträge einheitlich formatiert dargestellt werden, zum Beispiel: `\portion[Leute]{5}`. Die Verwendung ist nicht zwangsweise notwendig.
 9. **`\bakingtemperature`**: Diese Makro fügt zu den angegebenen Backtemperaturen kleine Icons ein. Unterschieden werden: Umluft (`fanoven`), Ober- und Unterhitze (`topbottomheat`), Oberhitze (`topheat`), Unterhitze (`bottomheat`) und Gasofen (`gasstove`).
 
 
 <a name="einpflegen"></a>
 ## Rezept einpflegen
-Um neue Rezepte in die Sammslung einzupflegen, muss nur ein neuer Ordner mit dem Namen des Rezepts im richtigen Unterordner erstellt werden. Darin kann dann die eigentliche `.tex`-Datei erstellt werden (aus der [Vorlage](#Code-Beispiel)), in der die `recipe`-Umgebung das Rezept richtig setzt. Sind alle Felder ausgefüllt oder auskommentiert, und alle Stichwörter ins Stichwortverzeichnis eingefügt, kann das Rezept in der `main`-Datei **`LaTeX_recipes.tex`** mittels `\input{}` eingebunden werden.
+Um neue Rezepte in die Sammlung einzupflegen, muss nur ein neuer Ordner mit dem Namen des Rezepts im richtigen Unterordner erstellt werden. Darin kann dann die eigentliche `.tex`-Datei erstellt werden (aus der [Vorlage](#Code-Beispiel)), in der die `recipe`-Umgebung das Rezept richtig setzt. Sind alle Felder ausgefüllt oder auskommentiert, und alle Stichwörter ins Stichwortverzeichnis eingefügt, kann das Rezept in der `main`-Datei **`LaTeX_recipes.tex`** mittels `\input{}` eingebunden werden.
 
 
 <a name="Ordnerstruktur"></a>
@@ -89,7 +89,7 @@ Die Sortierung der Rezepte erfolgt auf erster Ebene in den Teilen (`\part{}`) I.
 <a name="recipe-Umgebungen"></a>
 ### `recipe`-Umgebungen
 Die originale `recipe`-Umgebung aus dem `xcookybooky`-Paket ist zwar gut darin, das Rezept korrekt und schön zu setzen, die Formatierung mit mehreren Rezepten nacheinander funktioniert aber nicht so gut: die Bilder machen manchmal komische Sachen und rutschen auf den Seiten hin und her und überdecken zum Teil den Text. **Diese Umgebung wird nicht benutzt!** Alle neuen Umgebungen benutzen den globalen Zähler`recipeCntr`, sodass die Gesamtzahl der Rezepte automatisch durch zählt. Unter anderem daher die neu definierten Umgebungen:
-* `recipeSP`, fügt keinen Seitenumbruch ein, ist daher von der Formatierung wie `recipe` selbst. Hier kommt daher nur die automatische Zähung dazu. Benutzung nur mit großer Vorsicht!
+* `recipeSP`, fügt keinen Seitenumbruch ein, ist daher von der Formatierung wie `recipe` selbst. Hier kommt daher nur die automatische Zählung dazu. Benutzung nur mit großer Vorsicht!
 * `recipeDP`, fügt einen Seitenumbruch nach einem Rezept ein. Damit sollten keine Formatierungsfehler mehr passieren, allerdings kann viel Weißraum entstehen.
 
 Für die Arbeit auf anderen _branches_ als dem _main_ bieten die folgenden zwei Umgebungen Hilfestellung. Sie machen kenntlich, welche Rezepte noch zu erproben sind und fügen zu visuellen Unterscheidung einen kurzen Text und einen farbigen Balken ein:
@@ -127,7 +127,7 @@ Die Abbildungen, die über dem Rezept selbst stehen und mit dem `\graph`-Befehl 
  * _small_: Verhältnis von Bildbreite zu Bildhöhe 7/4 und
  * _big_: Verhältnis von Bildbreite zu Bildhöhe 11/4.
 
-Diese Formate werden durch die Einstellung der `pictureheight` und `bigpicturewidth` bzw. `smallpicturewidth` festgelegt. Daher müssen die eingebundenen Bilder `small.jpg` und `big.jpg` dieses Bildformat haben, um ideal auf dioe Seite zu passen.
+Diese Formate werden durch die Einstellung der `pictureheight` und `bigpicturewidth` bzw. `smallpicturewidth` festgelegt. Daher müssen die eingebundenen Bilder `small.jpg` und `big.jpg` dieses Bildformat haben, um ideal auf die Seite zu passen.
 
 
 <a name="Stichwortverzeichnis"></a>
@@ -160,7 +160,7 @@ Fertig ausgefüllte Rezepte werden an der richtigen Stelle in der `main`-Datei e
 
 <a name="Code-Beispiel"></a>
 ### Code-Beispiel
-Das Beispiel zeigt alle Mögichkeiten auf, Teile können ungenutzt auskommentiert werden - abhängig vom Rezept.
+Das Beispiel zeigt alle Möglichkeiten auf, Teile können ungenutzt auskommentiert werden - abhängig vom Rezept.
 
 ```latex
 \begin{RECIPE-UMGEBUNG}
