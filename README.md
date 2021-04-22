@@ -105,8 +105,8 @@ Einheit   | Befehl   | Kurzform
 ----------|----------|----------
 Gramm | `\gram` | `\g`
 Kilogramm | `\kilogram` | `\kg`
-Liter | `\milli\litre` | `\l`
-Milliliter | `\litre` | `\ml`
+Liter | `\litre` | `\l`
+Milliliter | `\milli\litre` | `\ml`
 
 Um auch andere Einheiten nutzen zu können gibt es in diesem Projekt die weiteren, selbst definierten Makros, die gleichzeitig auf das Abkürzungsverzeichnis verweisen:
 
