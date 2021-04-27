@@ -1,4 +1,4 @@
-# Bronte-Project
+# Bronte-Project: KoXbuX
 [DE] Rezeptesammlung - vegane Ideen in LaTeX gegossen
 
 Mit Hilfe des ![f1]-Pakets [`xcookybooky`](https://www.ctan.org/pkg/xcookybooky).
