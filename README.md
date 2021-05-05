@@ -1,4 +1,4 @@
-# Bronte-Project
+# Bronte-Project: KoXbuX
 [DE] Rezeptesammlung - vegane Ideen in LaTeX gegossen
 
 Mit Hilfe des ![f1]-Pakets [`xcookybooky`](https://www.ctan.org/pkg/xcookybooky).
@@ -105,8 +105,8 @@ Einheit   | Befehl   | Kurzform
 ----------|----------|----------
 Gramm | `\gram` | `\g`
 Kilogramm | `\kilogram` | `\kg`
-Liter | `\milli\litre` | `\l`
-Milliliter | `\litre` | `\ml`
+Liter | `\litre` | `\l`
+Milliliter | `\milli\litre` | `\ml`
 
 Um auch andere Einheiten nutzen zu können gibt es in diesem Projekt die weiteren, selbst definierten Makros, die gleichzeitig auf das Abkürzungsverzeichnis verweisen:
 
