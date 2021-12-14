@@ -1,0 +1,186 @@
+\begingroup
+\makeatletter
+\renewenvironment{recipe}[2][]
+{% initialisation
+    \setkeys{recipe}{preparationtime, bakingtime, bakingtemperature, portion, calory, source}
+    \setkeys{picture}{small, big, smallpicturewidth=\xcb@smallpicturewidth, bigpicturewidth=\xcb@bigpicturewidth} % load the default values
+    \def\xcb@hook@pregraph{}
+    \def\xcb@hook@pretitle{}
+    \def\xcb@introduction{}
+    \def\xcb@hook@prepreparation{}
+    \preparation{}
+    \def\xcb@hook@postpreparation{}
+    \def\xcb@hook@preingredients{}
+    \ingredients{}
+    \def\xcb@hook@postingredients{}
+    \def\xcb@suggestion{}
+    \def\xcb@hint{}
+
+    \def\xcb@recipename{#2}
+    \setkeys{recipe}{#1}  % reading the optional parameters
+
+    \setcounter{xcb@newpagefoot}{1}
+    \setcounter{xcb@newpagehead}{\value{page}}
+}
+{% this part is executed at \end{recipe}
+%% FIRST BLOCK
+    \xcb@hook@pregraph
+    \if@twoside
+        \ifodd\arabic{page}
+            \begin{minipage}[T]{\xcb@picture@bigwidth}
+                \xcb@picture@big
+            \end{minipage}
+            \hfill
+            \begin{minipage}[T]{\xcb@picture@smallwidth}
+                \xcb@picture@small
+            \end{minipage}
+        \else
+            \begin{minipage}[T]{\xcb@picture@smallwidth}
+                \xcb@picture@small
+            \end{minipage}
+            \hfill
+            \begin{minipage}[T]{\xcb@picture@bigwidth}
+                \xcb@picture@big
+            \end{minipage}
+        \fi
+    \else
+        \begin{minipage}[T]{\xcb@picture@bigwidth}
+            \xcb@picture@big
+        \end{minipage}
+        \hfill
+        \begin{minipage}[T]{\xcb@picture@smallwidth}
+            \xcb@picture@small
+        \end{minipage}
+    \fi
+
+%% SECOND BLOCK
+    \xcb@hook@pretitle
+    \recipesection[\normalsize\xcb@recipename]%
+    {\hspace{-1em}\textcolor{\xcb@color@recipename}{\xcb@font@recipename\xcb@recipename}}
+    \xcb@cmd@recipeoverview
+
+    \xcb@introduction
+
+%% THIRD BLOCK
+    \columnratio{0.66}
+    \begin{paracol}{2}
+        \xcb@hook@prepreparation
+
+        \xcb@preparation
+
+        \xcb@hook@postpreparation
+
+        \xcb@suggestion
+
+        \vfill
+
+        \xcb@cmd@wrapfill
+        \xcb@hint
+        \setcounter{xcb@newpagefoot}{0}
+      \switchcolumn
+            \xcb@hook@preingredients
+
+            \xcb@ingredients
+
+            \xcb@hook@postingredients
+    \end{paracol}
+}
+
+\renewcommand*{\ingredients}[2][\empty]
+{% The optional argument contains the number of lines
+    \def\xcb@ingredientslines{#1}
+    \def\xcb@ingredients
+    {%
+        \xcb@name@inghead
+        \\[1em]
+        {\xcb@fontsize@ing\color{\xcb@color@ing}
+        \begin{supertabular}{r>{\raggedright\arraybackslash}p{3cm}}
+            #2
+        \end{supertabular}}
+    }
+}
+\makeatother
+
+\begin{recipeDP}
+    [
+        preparationtime = {\SI{60}{\minute}},
+        bakingtime = {\SI{25}{\minute}},
+        bakingtemperature = {\protect\bakingtemperature{topbottomheat=\SI{200}{\celsius}}},
+        portion = {12 Enchiladas},
+        source = {@elavegan}
+    ]
+    {Linsen-\addtoidx{Enchiladas}}
+
+    \graph
+        {
+            big=Hauptgerichte/Ofengerichte/Linsen-Enchiladas/big.jpg,
+            small=Hauptgerichte/Ofengerichte/Linsen-Enchiladas/small.jpg
+        }
+
+    % \introduction{
+    %     EINLEITUNG
+    % }
+
+    \ingredients{
+        12 & Tortilla Wraps \\
+        \\
+        \multicolumn{2}{l}{\textbf{Linsen-Füllung}} \\
+        \SI{250}{\g} & trockene \addtoidx{Linsen} \\
+        \SI{600}{\ml} & Wasser \\
+        \SI{70}{\g} & Sonnenblumenkerne \\
+        \SI{50}{\g} & Kürbiskerne \\
+        \SI{120}{\g} & Haferflocken \\
+        \SI{100}{\g} & Tomatenmark \\
+        2 & Paprika \\
+        2 & Möhren \\
+        1 & mittelgroße Tomate \\
+        1 & große Zwiebel \\
+        2 & Knoblauchzehen \\
+        \SI{2}{\EL} & Leinsamen \\
+        \SI{2}{\EL} & Öl \\
+        \\
+        \SI[parse-numbers = false]{\nicefrac{1}{2}}{\EL} & Zwiebelpulver \\
+        \SI[parse-numbers = false]{\nicefrac{1}{2}}{\EL} & Knoblauchpuler \\
+        \SI{2}{\TL} & Oregano \\
+        \SI{2}{\TL} & Kreuzkümmel \\
+        \SI{1}{\TL} & Paprikapulver \\
+        \SI[parse-numbers = false]{\nicefrac{1}{2}}{\TL} & Chilipulver \\
+        \SI{1}{\TL} Gemüsebrühe-Pulver \\
+         & Salz \\
+         & Pfeffer \\
+        \\
+        \multicolumn{2}{l}{\textbf{Soße}} \\
+        \SI{1}{\EL} & Olivenöl \\
+        \SI{1,5}{\EL} & Mehl \\
+        \SI{600}{\g} & \addtoidx{Passata} \\
+        \\
+        \SI[parse-numbers = false]{\nicefrac{1}{2}}{\EL} & Chilipulver \\
+        \SI{1}{\TL} & Zwiebelpulver \\
+        \SI{1}{\TL} & Knoblauchpuler \\
+        \SI{1}{\TL} & Kreuzkümmel \\
+        \SI[parse-numbers = false]{\nicefrac{1}{2}}{\EL} & Cayennepfeffer \\
+         & Salz \\
+         & Pfeffer \\
+    }
+
+    \preparation{
+        \step Zuerst die Linsen gründlich abspülen und in einen mittelgroßen Topf geben. Das Wasser dazugeben und aufkochen lassen. Mit einem Deckel etwa 25 Minuten köcheln lassen (oder bis die Linsen weich sind). Vom Herd nehmen und weitere 10~Minuten zugedeckt stehen.
+        \step Während die Linsen kochen, dann die \emph{Enchilada-Soße} vorbereiten: Das Olivenöl in einer Pfanne bei mittlerer Hitze erwärmen. Alle Gewürze hinzugeben und für ungefähr 2 Minuten anbraten. Dann das Mehl möglichst klumpenfrei unterrühren und alles eine weitere Minute anbraten lassen. Schließlich die Tomatensauce dazugeben, die Mischung aufkochen und für \ca 5~Minuten köcheln, bis die Sauce andickt.
+        \step \emph{Enchilada-Füllung}: In einem großen Topf das Öl bei mittlerer Hitze erwärmen. Die gewürfelte Zwiebel und den gepressten Knoblauch dazugeben und alles 3 bis 4~Minuten unter gelegentlichem Rühren anbraten. Danach die kleingeschnittene Paprika, Tomate und geriebene Karotte dazugeben und alles anbraten (für 5 bis 7~Minuten). Nun den Topf beiseite stellen.
+        \step Für die Füllung die Trockenen Sachen (Gewürze, Salz, Pfeffer, Haferflocken, Sonnenblumen- und Kürbiskerne, Leinsamen) in einer Küchenmaschine oder einem Smoothie-Mixer zerkleinern bis ein feines Mehl entsteht.
+        \step Dann die zerkleinerten trockenen Zutaten zum gegarten Gemüse geben. Mit den weichen Linsen vermengen und dann mit einem Kartoffelstampfer zerkleinern (das geht auch in einer Küchenmaschine). Ist die Masse noch nicht dick genug, noch etwas Hafermehl hinzugeben. Dann den Ofen auf \SI{200}{\celsius} (Ober- und Unterhitze) vorheizen.
+        \step Dann die Enchiladas füllen: auf jeden Wrap 2 gehäufte Esslöffel geben, längs verteilen und aufrollen. Die gefüllten Wraps nebeneinander in eine gefettete Auflaufform geben. Am besten in einer Lage auf mehrere Formen verteilen, stapeln geht aber auch.
+        \step Danach die Enchilada-Soße auf den aufgerollten Wraps verteilen und die Auflaufformen für etwa \SI{25}{\minute} in den Ofen geben. Nach \SI{15}{\minute} kann optional der Käse auf den Enchiladas verteilt werden. Heiß servieren!
+    }
+
+    % \suggestion[TITEL EINES VORSCHLAGS]{
+	% 	VORSCHLAG (DURCH HORIZONTALE LINIE VOM REZEPT GETRENNT)
+    % }
+
+    \hint{
+        Beim Kochen der Linsen kein Salz oder Säure hinzugeben! Dadurch verlängert sich die Kochzeit.
+    }
+
+\end{recipeDP}
+
+\endgroup
